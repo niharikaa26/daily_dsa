@@ -39,6 +39,30 @@ class LinkedList{ //user defined data structure
     }
     size ++;
    }
+   void deleteAtHead(){
+    
+    if(size == 0) {
+        cout<<"list is empty"<<endl;
+    }
+    
+    
+    else if(size>=1){
+        head = head -> next;
+        size --;
+    }
+    
+   }
+   void deleteAtTail(){
+    Node* temp = head;
+    while(temp -> next!= tail){
+        temp = temp ->next;
+
+    }
+    temp ->next = NULL;
+    tail = temp;
+    size --;
+
+   }
    
    void insertAtIdx(int idx, int val){
     if(idx<0 || idx>size){
@@ -61,21 +85,30 @@ class LinkedList{ //user defined data structure
         size++;
     }
 }
-int getAtIdx(int idx){
-    if(idx<0 || idx>= size){
-        cout<<"invalid index";
-        return -1;
+void deleteAtIdx(int idx){
+    if(idx<0 || idx>size){
+        cout<<"invalid"<<endl;
+        
     }
-    else if(idx==0) return head->val;
-    else if(idx == size -1) return tail->val;
+    else if(idx == 0){
+       deleteAtHead();
+
+    }
+    else if(idx == size){
+        deleteAtTail();
+    }
     else{
+       
         Node* temp = head;
-        for(int i =1; i<=idx; i++ ){
+        for(int i=1; i<=idx-1; i++){
             temp = temp-> next;
         }
-        return temp -> val;
+        temp -> next = temp-> next ->next;
+        size--;
     }
 }
+
+
 void display(){
     Node* temp = head;
     while(temp!= NULL){
@@ -95,9 +128,12 @@ int main(){
     ll.insertAtTail(30);
     ll.insertAtTail(40);
     ll.display();
-    ll.insertAtHead(0);
+    ll.deleteAtHead();
     ll.display();
-    ll.insertAtIdx(5,50);
+    ll.deleteAtTail();
     ll.display();
-    cout<<ll.getAtIdx(1)<<endl;
+    ll.deleteAtIdx(2);
+    ll.display();
+   
+   
 }
