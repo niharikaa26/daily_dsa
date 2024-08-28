@@ -2,8 +2,10 @@
 #include<stack>
 using namespace std;
 int priority(char x){
-    if(x == '+' || x == '-') return 1;
-    else return 2;
+    if(x == '/' ) return 1;
+    else if(x == '*' ) return 2;
+    else if(x == '-' ) return 3;
+    else if(x == '+' ) return 4;
 }
 int solve(int val1, int val2, char op){
     if(op == '-') return val1-val2;
@@ -13,7 +15,7 @@ int solve(int val1, int val2, char op){
 
 }
 int main(){
-    string s = "2+6*4/8-3";
+    string s = "3+1+5*2/7+2-4-7-6/2";
     stack<int> val;
     stack<char> opr;
     for(int i=0; i<s.length(); i++){
