@@ -1,4 +1,5 @@
 #include<iostream>
+#include<climits>
 using namespace std;
 class Node{
     public:
@@ -11,22 +12,13 @@ class Node{
         left = NULL;
         right = NULL;
     }
-
-    
-
 };
-int sum(Node * root){
-        if(root == NULL) return 0;
-        return root->val+sum(root->left)+sum(root->right);
+int levels(Node * root){
+        if(root == NULL) return 0;//for negative numbers
+        return 1+ max(levels(root->left),levels(root->right));
+
 }
-int Multiplication(Node * root){
-        if(root == NULL) return 1;
-        return root->val*Multiplication(root->left)*Multiplication(root->right);
-}
-int count(Node * root){
-        if(root == NULL) return 0;
-        return 1+count(root->left)+count(root->right);
-}
+
 
 int main(){
     Node* a = new Node(1);
@@ -42,7 +34,6 @@ int main(){
     b->right = e;
     c-> left = f;
     c->right = g;
-    cout<<sum(a)<<endl;
-    cout<<Multiplication(a)<<endl;
-    cout<<count(a);
+    cout<<levels(a);
+    
 }
