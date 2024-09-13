@@ -80,7 +80,8 @@ public:
         return gun;
     }
     void set_helmet(int level){
-        Helmet *helmet = new Helmet;
+        Helmet *helmet ;
+        helmet = new Helmet;
         helmet -> set_level(level);
         int health = 0;
         if(level ==1)
@@ -147,6 +148,8 @@ int main()
 
     niharika.get_helmet();
     vivek.get_helmet();
+    cout<<niharika.get_health()<<endl;
+    cout<<vivek.get_health()<<endl;
 
     
 

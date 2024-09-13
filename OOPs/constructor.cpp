@@ -5,7 +5,7 @@ class Bike{
     public:
     int tyresize;
     int enginesize;
-    //default constructor:
+    // default constructor:
     // Bike (){
     //     cout<<"constructor called"<<endl;
 
@@ -25,6 +25,7 @@ class Bike{
 
 int main(){
     cout<<"hello ji!"<<endl;
+    // Bike b;
     Bike tvs(12, 100);  //object created mtlb we called constructor
     Bike honda(13, 200);
     Bike passion(14, 270);

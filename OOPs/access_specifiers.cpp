@@ -13,7 +13,7 @@ class A {
     
 
 };
-class B : protected A{
+class B : public A{
     public:
     int b_ka_public;
 
