@@ -11,7 +11,7 @@ class A {
 
     public:
     int a_ka_public;
-    void show(){
+    virtual void show(){
         cout<<"mai A ka show hun"<<endl;
     }
 };
@@ -25,7 +25,7 @@ class B : public A{
     public:
     int b_ka_public;
 
-    void show(){
+   void show(){
         cout<<"B ka show hu"<<endl;
     }
 
@@ -35,8 +35,13 @@ class B : public A{
 
 int main(){
 
-    B b;
-    b.show();
-    b.A::show();
+    // B b;
+    // b.show();
+    // b.A::show();
+    A* a_ptr;
+    B b1;
+    a_ptr = &b1;
+    a_ptr->show();
+    b1.show();
      
 }
